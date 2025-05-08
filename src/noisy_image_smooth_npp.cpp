@@ -47,7 +47,7 @@ void printHelp(const char* prog) {
 int main(int argc, char* argv[]) {
     std::string filterType = "box";
     int window = 5;
-    std::string inputFile  = "Noisy_Lenna_Gray.png";
+    std::string inputFile  = "./data/Noisy_Lenna_Gray.png";
     std::string outputFile = "Smooth_Lenna_Gray.png";
 
     // Parse command-line arguments
