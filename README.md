@@ -17,8 +17,6 @@ git submodule update --init --recursive
 ```
 
 ## Features
-## Clone and initialize
-
 
 - **Filters**: Box filter and Gaussian filter (window sizes 3, 5, 7, or 9).
 - **Preprocessing**: Automatic conversion to 8-bit grayscale, with error handling.
