@@ -9,13 +9,16 @@ Clone the repository **with** submodules in one step:
 ```bash
 git clone --recurse-submodules https://github.com/yanhongzhong/CUDA-at-Scale-Independent-Project.git
 cd CUDA-at-Scale-Independent-Project
+```
 
 If you already cloned without submodules:
 ```bash
 git submodule update --init --recursive
-
+```
 
 ## Features
+## Clone and initialize
+
 
 - **Filters**: Box filter and Gaussian filter (window sizes 3, 5, 7, or 9).
 - **Preprocessing**: Automatic conversion to 8-bit grayscale, with error handling.
@@ -63,4 +66,4 @@ Options
 Example
 
 bin/noisy_smooth_npp -f gauss -w 5 -i data/my_noisy.png -o data/my_smooth.png
-
+```
