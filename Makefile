@@ -10,6 +10,10 @@ TARGET := noisy_image_smooth_npp
 # Compiler
 NVCC := nvcc
 
+# NPP includes
+EXTERNDIR := extern/cuda-samples/Common/UtilNPP
+INCLUDES := -I$(EXTERNDIR)
+
 # OpenCV flags
 OPENCV_CFLAGS := $(shell pkg-config --cflags opencv4)
 OPENCV_LIBS   := $(shell pkg-config --libs opencv4)
@@ -23,7 +27,7 @@ all: $(BINDIR)/$(TARGET)
 # Compile target
 $(BINDIR)/$(TARGET): $(SRC)
 	@mkdir -p $(BINDIR)
-	$(NVCC) -std=c++17 $(OPENCV_CFLAGS) $< -o $@ \
+	$(NVCC) -std=c++17 $(INCLUDES) $(OPENCV_CFLAGS) $< -o $@ \
 		$(OPENCV_LIBS) $(CUDA_LIBS)
 
 # Clean artifacts

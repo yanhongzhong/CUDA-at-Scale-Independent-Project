@@ -11,6 +11,9 @@
 #include <cuda_runtime.h>
 #include <npp.h>
 #include <nppi.h>
+#include <ImageIO.h>
+#include <ImagesCPU.h>
+#include <ImagesNPP.h>
 
 #define CUDA_CHECK(call) do { \
     cudaError_t err = call; \
@@ -135,20 +138,20 @@ int main(int argc, char* argv[]) {
         ));
     }
     else if (filterType == "gauss") {
-        int maskEnum;
+        NppiMaskSize eMask;
         switch (window) {
-            case 3: maskEnum = NPP_MASK_SIZE_3_X_3; break;
-            case 5: maskEnum = NPP_MASK_SIZE_5_X_5; break;
-            case 7: maskEnum = NPP_MASK_SIZE_7_X_7; break;
-            case 9: maskEnum = NPP_MASK_SIZE_9_X_9; break;
+            case 3:  eMask = NPP_MASK_SIZE_3_X_3;  break;
+            case 5:  eMask = NPP_MASK_SIZE_5_X_5;  break;
+            case 7:  eMask = NPP_MASK_SIZE_7_X_7;  break;
+            case 9:  eMask = NPP_MASK_SIZE_9_X_9;  break;
             default:
-                std::cerr << "Error: Gaussian supports window sizes 3,5,7,9\n";
+                std::cerr << "Error: Gaussian filter only supports window 3,5,7,9\n";
                 return EXIT_FAILURE;
         }
         NPP_CHECK(nppiFilterGaussBorder_8u_C1R(
             devSrc.data(), devSrc.pitch(), oSizeROI, {0,0},
             devDst.data(), devDst.pitch(), oSizeROI,
-            maskEnum, oAnchor, NPP_BORDER_REPLICATE
+            eMask, NPP_BORDER_REPLICATE
         ));
     }
     else {
