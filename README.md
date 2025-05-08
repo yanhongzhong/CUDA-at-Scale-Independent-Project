@@ -25,6 +25,7 @@ git submodule update --init --recursive
   - **`src/`**: Source code (`noisy_smooth_npp.cpp`).
   - **`data/`**: Input images (default: `Noisy_Lenna_Gray.png`).   Outut images (default: `Smooth_Lenna_Gray.png`).
   - **`bin/`**: Build output (`noisy_smooth_npp` executable).
+  - ***`extern/`**: External module (CUDA NPP Helper)
 
 ## Dependencies
 
