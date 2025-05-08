@@ -19,7 +19,7 @@ OPENCV_CFLAGS := $(shell pkg-config --cflags opencv4)
 OPENCV_LIBS   := $(shell pkg-config --libs opencv4)
 
 # CUDA/NPP libs
-CUDA_LIBS := -lnppig -lnppif -lnppidei -lnppisu -lnppicc -lcudart
+CUDA_LIBS := -lnppig -lnppif -lnppidei -lnppisu -lnppicc -lcudart -lfreeimage
 
 # Build all
 all: $(BINDIR)/$(TARGET)

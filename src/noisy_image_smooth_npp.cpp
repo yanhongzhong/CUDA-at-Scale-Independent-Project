@@ -14,6 +14,7 @@
 #include <ImageIO.h>
 #include <ImagesCPU.h>
 #include <ImagesNPP.h>
+#include <FreeImage.h>
 
 #define CUDA_CHECK(call) do { \
     cudaError_t err = call; \
