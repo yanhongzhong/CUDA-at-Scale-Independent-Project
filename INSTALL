@@ -1,0 +1,66 @@
+# INSTALL
+
+This guide walks you through installing all dependencies required for the **noisy\_smooth\_npp** application:
+
+* **CUDA Toolkit** (includes NPP)
+* **OpenCV**
+* **FreeImage**
+
+
+## CUDA Toolkit & NPP
+
+```bash
+# Add NVIDIA CUDA repo
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu$(lsb_release -sr)/x86_64/cuda-ubuntu$(lsb_release -sr).pin
+sudo mv cuda-ubuntu*.pin /etc/apt/preferences.d/
+sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu$(lsb_release -sr)/x86_64/7fa2af80.pub
+sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu$(lsb_release -sr)/x86_64/ /"
+sudo apt update
+
+# Install CUDA Toolkit (includes NPP)
+sudo apt install -y cuda-toolkit-12-0
+```
+
+
+After installation, verify with:
+
+```bash
+nvcc --version
+nvidia-smi
+```
+
+---
+
+## OpenCV
+
+### From Ubuntu Repositories
+
+```bash
+sudo apt update
+sudo apt install -y libopencv-dev pkg-config
+```
+
+Verify with:
+
+```bash
+pkg-config --modversion opencv4
+```
+
+---
+
+## FreeImage
+
+```bash
+sudo apt update
+sudo apt install -y libfreeimage-dev
+```
+
+Verify header and library:
+
+```bash
+ls /usr/include/FreeImage.h
+ls /usr/lib/x86_64-linux-gnu/libfreeimage.*
+```
+
+
+
